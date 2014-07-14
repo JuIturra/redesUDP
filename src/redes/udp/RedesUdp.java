@@ -14,7 +14,8 @@ public class RedesUdp {
     public static void main(String[] args) throws SocketException, UnknownHostException, IOException{        
         DatagramSocket clientSocket = new DatagramSocket();
         DatagramSocket serverSocket = new DatagramSocket(8400);
-        InetAddress IPAddress = InetAddress.getByName("serverIP"); 
+        
+        InetAddress IPAddress = InetAddress.getByName("localhost");
    
         byte[] datos = new byte[1024]; 
 
@@ -24,7 +25,7 @@ public class RedesUdp {
         while(true){
             packet = new DatagramPacket(datos, datos.length);
             clientSocket.receive(packet);
-            sendPacket =  new DatagramPacket(packet.getData(), datos.length, IPAddress, 8500);
+            sendPacket =  new DatagramPacket(packet.getData(), packet.getLength(), IPAddress, 8400);
             serverSocket.send(sendPacket);
         }  
     }
