@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 
 public class RedesUdp {
 
-    public static void main(String[] args) throws SocketException, UnknownHostException, IOException{
-        InetAddress IPAddress = InetAddress.getByName("localhost");
+    public static void main(String[] args) throws IOException{
+        InetAddress IPAddress = InetAddress.getByName("ip_receptor");
         DatagramSocket clientSocket = new DatagramSocket();
         DatagramSocket serverSocket = new DatagramSocket(8400);
    
